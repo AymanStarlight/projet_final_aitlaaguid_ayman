@@ -1,6 +1,6 @@
 @extends('frontend.layouts.layout')
 @section('content')
-    <!--================login_part Area =================-->
+    <!--================login_part start =================-->
     <section class="login_part padding_top">
         <div class="container">
             <div class="row align-items-center">
@@ -10,7 +10,7 @@
                             <h2>New to our Shop?</h2>
                             <p>There are advances being made in science and technology
                                 everyday, and a good example of this is the</p>
-                            <a href="#" class="btn_3">Create an Account</a>
+                            <a href="{{ route('register') }}" class="btn_3">Create an Account</a>
                         </div>
                     </div>
                 </div>
@@ -23,14 +23,14 @@
                                 @csrf
                                 <!-- Email Address -->
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required autocomplete="username">
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"  autocomplete="username">
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                                 </div>
 
                                 <!-- Password -->
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required autocomplete="current-password">
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"  autocomplete="current-password">
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
                                 </div>
 
                                 <!-- Remember Me -->
