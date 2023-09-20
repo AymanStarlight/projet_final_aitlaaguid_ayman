@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+// Pages
+Route::get('/', [HomeController::class, 'home'])->name('home.index');
+Route::get('/shop', [HomeController::class, 'shop'])->name('shop.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

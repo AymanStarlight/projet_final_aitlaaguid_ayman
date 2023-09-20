@@ -1,0 +1,10 @@
+@extends('frontend.layouts.layout')
+@section('content')
+    @include('frontend.home.partials.banner')
+    @include('frontend.home.partials.featured')
+    @include('frontend.home.partials.product_list')
+    @include('frontend.home.partials.sale')
+    @include('frontend.home.partials.best_seller')
+    @include('frontend.home.partials.subscribe')
+    @include('frontend.home.partials.clients')
+@endsection

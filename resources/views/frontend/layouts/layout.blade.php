@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="storage/css/animate.css">
     <!-- owl carousel CSS -->
     <link rel="stylesheet" href="storage/css/owl.carousel.min.css">
+    <!-- nice select CSS -->
+    <link rel="stylesheet" href="storage/css/nice-select.css">
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="storage/css/all.css">
     <!-- flaticon CSS -->
@@ -28,7 +30,7 @@
 </head>
 
 <body>
-    
+
     @include('frontend.layouts.header')
 
     @yield('content')
