@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>aranoz</title>
     <link rel="icon" href="storage/img/favicon.png">
     <!-- Bootstrap CSS -->
@@ -34,6 +35,8 @@
 
     @include('frontend.layouts.footer')
 
+    {{-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/73305753f0.js" crossorigin="anonymous"></script>
     <!-- jquery plugins here-->
     <script src="storage/js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->

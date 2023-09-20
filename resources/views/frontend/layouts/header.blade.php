@@ -24,7 +24,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                     <a class="dropdown-item" href="category.html"> shop category</a>
                                     <a class="dropdown-item" href="single-product.html">product details</a>
-                                    
+
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -51,7 +51,7 @@
                                     <a class="dropdown-item" href="single-blog.html">Single blog</a>
                                 </div>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
                             </li>
@@ -70,8 +70,19 @@
 
                                 </div>
                             </div> -->
-                            
                         </div>
+                    </div>
+                    <div style="margin-bottom: 1px">
+                        @auth
+                            <a href="{{ url('/dashboard') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}"><i class="fa-regular fa-user"></i></a>
+                            {{-- @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                            @endif --}}
+                        @endauth
                     </div>
                 </nav>
             </div>

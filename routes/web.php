@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.home');
 });
+Route::get('/welcome', function () {
+    return view('auth.Login');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
