@@ -4,7 +4,8 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="index.html"> <img src="storage/img/logo.png" alt="logo"> </a>
+                    <a class="navbar-brand" href={{ route('home.index') }}> <img src="storage/img/logo.png" alt="logo">
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -74,14 +75,17 @@
                     </div>
                     <div style="margin-bottom: 1px">
                         @auth
-                            <a href="{{ url('/dashboard') }}"
-                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        this.closest('form').submit();"><i
+                                    class="fa-solid fa-right-from-bracket"></i></a>
+                        </form>
+                            
                         @else
                             <a href="{{ route('login') }}"><i class="fa-regular fa-user"></i></a>
-                            {{-- @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
-                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                            @endif --}}
                         @endauth
                     </div>
                 </nav>
