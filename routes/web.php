@@ -25,7 +25,14 @@ Route::get('/product/{product}', [ProductController::class, 'show'])->name('prod
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'role:admin'])->name('dashboard');
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+    Route::post('/products/store', [ProductController::class, 'store'])->name('product.store');
+    Route::put('/products/edit/{product}', [ProductController::class, 'update'])->name('product.edit');
+    Route::delete('/products/delete/{product}', [ProductController::class, 'destroy'])->name('product.delete');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
