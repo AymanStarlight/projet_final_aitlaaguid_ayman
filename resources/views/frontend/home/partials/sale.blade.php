@@ -3,8 +3,13 @@
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-6 col-md-6">
+                @php
+                    
+                    $product = $products->first();
+
+                @endphp
                 <div class="offer_img">
-                    <img src="storage/img/offer_img.png" alt="">
+                    <img src={{ asset("storage/img/products/$product->img_url") }} alt="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
