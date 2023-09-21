@@ -9,24 +9,26 @@
     <title>aranoz</title>
     <link rel="icon" href="storage/img/favicon.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/bootstrap.min.css') }}">
     <!-- animate CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/animate.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/animate.css') }}">
     <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/owl.carousel.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/lightslider.min.css') }}">
+
     <!-- nice select CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/nice-select.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/nice-select.css') }}">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/all.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/all.css') }}">
     <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/flaticon.css") }}">
-    <link rel="stylesheet" href="{{ asset("storage/css/themify-icons.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/themify-icons.css') }}">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/magnific-popup.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/magnific-popup.css') }}">
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/slick.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/slick.css') }}">
     <!-- style CSS -->
-    <link rel="stylesheet" href="{{ asset("storage/css/style.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/style.css') }}">
 
     {{-- @vite('resources/js/custom.js') --}}
 </head>
@@ -51,6 +53,7 @@
     <script src="{{ asset('storage/js/jquery.magnific-popup.js') }}"></script>
     <!-- swiper js -->
     <script src="{{ asset('storage/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('storage/js/lightslider.min.js') }}"></script>
     <!-- swiper js -->
     <script src="{{ asset('storage/js/masonry.pkgd.js') }}"></script>
     <!-- particles js -->

@@ -64,7 +64,10 @@
                     @foreach ($products as $product)
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src={{ asset("storage/img/products/$product->img_url") }} alt="">
+                                <a href={{ route('product.show', $product->id) }}>
+
+                                    <img src={{ asset("storage/img/products/$product->img_url") }} alt="">
+                                </a>
                                 <div class="single_product_text">
                                     <h4 style="white-space: nowrap">{{ mb_strimwidth($product->name, 0, 20, '...') }}
                                     </h4>

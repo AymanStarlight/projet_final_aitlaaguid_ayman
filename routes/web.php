@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Pages
 Route::get('/', [HomeController::class, 'home'])->name('home.index');
 Route::get('/shop/{sort?}/{category?}', [HomeController::class, 'shop'])->name('shop.index');
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
