@@ -1,15 +1,3 @@
-@php
-    function splitStringAfterChars($string, $numChars) {
-    if (strlen($string) <= $numChars) {
-        return $string;  // Return the original string if it's shorter than numChars
-    }
-
-    $firstLine = substr($string, 0, $numChars);
-    $secondLine = substr($string, $numChars);
-
-    return $firstLine . "\n" . $secondLine;
-}
-@endphp
 
 <!-- banner part start-->
 <section class="banner_part">
@@ -23,7 +11,7 @@
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>{{ splitStringAfterChars(mb_strimwidth($product->name, 0, 18, '...'), 5) }}</h1>
+                                            <h1 style="width: 50%">{{ mb_strimwidth($product->name, 0, 21, '...') }}</h1>
                                             <p>{{ $product->description }}</p>
                                             <a href={{ route('product.show', $product->id) }} class="btn_2">buy now</a>
                                         </div>

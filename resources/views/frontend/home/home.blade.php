@@ -1,3 +1,16 @@
+@php
+    function splitStringAfterChars($string, $numChars) {
+    if (strlen($string) <= $numChars) {
+        return $string;  // Return the original string if it's shorter than numChars
+    }
+
+    $firstLine = substr($string, 0, $numChars);
+    $secondLine = substr($string, $numChars);
+
+    return $firstLine . "\n" . $secondLine;
+}
+@endphp
+
 @extends('frontend.layouts.layout')
 @section('content')
     @include('frontend.home.partials.banner')
