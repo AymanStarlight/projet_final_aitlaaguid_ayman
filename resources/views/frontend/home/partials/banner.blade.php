@@ -18,8 +18,8 @@
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src={{ asset("storage/img/banner_img.png") }} alt="">
-                                    {{-- <img src={{ asset("storage/img/products/$product->img_url") }} alt=""> --}}
+                                    {{-- <img src={{ asset("storage/img/banner_img.png") }} alt=""> --}}
+                                    <img height="550" src={{ asset("storage/img/products/$product->img_url") }} alt="">
                                 </div>
                             </div>
                         </div>
