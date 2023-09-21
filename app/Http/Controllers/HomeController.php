@@ -12,8 +12,10 @@ class HomeController extends Controller
         return view('frontend.home.home');
     }
 
-    public function shop() {
-        $products = Product::all();
+    public function shop($sort = null, Category $category = null) {
+
+        $pds = $category ? Product::all()->where('category_id', $category->id) : Product::all()->shuffle();
+        $products = $sort ? $pds->sortBy("$sort") : $pds;
         $categories = Category::all();
         return view('frontend.shop.shop', compact('products', 'categories'));
     }
