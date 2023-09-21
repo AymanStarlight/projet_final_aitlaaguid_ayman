@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home() {
-        return view('frontend.home.home');
+        $products = Product::all();
+        return view('frontend.home.home', compact('products'));
     }
 
     public function shop($sort = null, Category $category = null) {
