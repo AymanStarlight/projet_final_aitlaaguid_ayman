@@ -21,7 +21,16 @@
                                     <div class="single_product_text">
                                         <h4>{{ mb_strimwidth($product->name, 0, 19, '...') }}</h4>
                                         <h3>${{ $product->price }}</h3>
-                                        <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                        <form action={{ route('cart.store', $product->id) }} method="POST" id="CSF{{ $product->id }}">
+                                            @csrf
+                                            <a href="#{{ $product->id }}" onclick="submitForm({{ $product->id }})" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            {{-- <button type="submit">Add</button> --}}
+                                        </form>
+                                        <script>
+                                            function submitForm(id) {
+                                                document.getElementById(`CSF${id}`).submit();
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                             </div>

@@ -35,11 +35,20 @@
 
 <body>
 
+
     @include('frontend.layouts.header')
+    @include('frontend.layouts.flash')
 
     @yield('content')
 
     @include('frontend.layouts.footer')
+
+    <style>
+        .main_menu .cart i:after {
+            content: attr(value);
+        }
+    </style>
+
 
     {{-- Font Awesome --}}
     <script src="https://kit.fontawesome.com/73305753f0.js" crossorigin="anonymous"></script>

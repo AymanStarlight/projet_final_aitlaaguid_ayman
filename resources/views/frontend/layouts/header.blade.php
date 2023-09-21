@@ -4,7 +4,8 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href={{ route('home.index') }}> <img src="{{ asset('storage/img/logo.png') }}" alt="logo">
+                    <a class="navbar-brand" href={{ route('home.index') }}> <img src="{{ asset('storage/img/logo.png') }}"
+                            alt="logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -29,28 +30,26 @@
                         <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                         <a href=""><i class="ti-heart"></i></a>
                         <div class="dropdown cart">
-                            <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cart-plus"></i>
+                            <a href={{ route('cart.index') }}>
+                                @auth
+                                <i class="fa-solid fa-cart-shopping" value='{{ count(auth()->user()->cart->cart_product) }}'></i>
+                                @endauth
+                                @if (!auth()->user())
+                                <i class="fa-solid fa-cart-shopping" value='0'></i>
+                                @endif
                             </a>
-                            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <div class="single_product">
-
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <div style="margin-bottom: 1px">
                         @auth
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
 
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                         this.closest('form').submit();"><i
-                                    class="fa-solid fa-right-from-bracket"></i></a>
-                        </form>
-                            
+                                        class="fa-solid fa-right-from-bracket"></i></a>
+                            </form>
                         @else
                             <a href="{{ route('login') }}"><i class="fa-regular fa-user"></i></a>
                         @endauth

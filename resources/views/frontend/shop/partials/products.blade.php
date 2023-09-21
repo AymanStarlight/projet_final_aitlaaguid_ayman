@@ -34,16 +34,26 @@
                             <div class="single_product_menu">
                                 <p><span>{{ count($products) }} </span> Product Found</p>
                             </div>
-                            <div style="gap: 5px" class="single_product_menu d-flex justify-content-between align-items-center">
+                            <div style="gap: 5px"
+                                class="single_product_menu d-flex justify-content-between align-items-center">
                                 <h5>Sort by : </h5>
-                                @if ((url()->current() == 'http://localhost:8000/shop') || (url()->current() == 'http://localhost:8000/shop/name') || (url()->current() == 'http://localhost:8000/shop/price') || (url()->current() == 'http://localhost:8000/shop/created_at'))   
-                                <a class="{{ str_contains(url()->current(), 'name') ? 'text-danger' : 'text-secondary' }}" href={{ route('shop.index', ['sort' => 'name']) }}>name</a>
-                                <a class="{{ str_contains(url()->current(), 'price') ? 'text-danger' : 'text-secondary' }}" href={{ route('shop.index', ['sort' => 'price']) }}>price</a>
-                                <a class="{{ str_contains(url()->current(), 'created_at') ? 'text-danger' : 'text-secondary' }}" href={{ route('shop.index', ['sort' => 'created_at']) }}>product</a>
+                                @if (url()->current() == 'http://localhost:8000/shop' ||
+                                        url()->current() == 'http://localhost:8000/shop/name' ||
+                                        url()->current() == 'http://localhost:8000/shop/price' ||
+                                        url()->current() == 'http://localhost:8000/shop/created_at')
+                                    <a class="{{ str_contains(url()->current(), 'name') ? 'text-danger' : 'text-secondary' }}"
+                                        href={{ route('shop.index', ['sort' => 'name']) }}>name</a>
+                                    <a class="{{ str_contains(url()->current(), 'price') ? 'text-danger' : 'text-secondary' }}"
+                                        href={{ route('shop.index', ['sort' => 'price']) }}>price</a>
+                                    <a class="{{ str_contains(url()->current(), 'created_at') ? 'text-danger' : 'text-secondary' }}"
+                                        href={{ route('shop.index', ['sort' => 'created_at']) }}>product</a>
                                 @else
-                                <a class="{{ str_contains(url()->current(), 'name') ? 'text-danger' : 'text-secondary' }}" href={{ route('shop.index', ['sort' => 'name', 'category' => substr(url()->current(), -1)]) }}>name</a>
-                                <a class="{{ str_contains(url()->current(), 'price') ? 'text-danger' : 'text-secondary' }}" href={{ route('shop.index', ['sort' => 'price', 'category' => substr(url()->current(), -1)]) }}>price</a>
-                                <a class="{{ str_contains(url()->current(), 'created_at') ? 'text-danger' : 'text-secondary' }}" href={{ route('shop.index', ['sort' => 'created_at', 'category' => substr(url()->current(), -1)]) }}>product</a>
+                                    <a class="{{ str_contains(url()->current(), 'name') ? 'text-danger' : 'text-secondary' }}"
+                                        href={{ route('shop.index', ['sort' => 'name', 'category' => substr(url()->current(), -1)]) }}>name</a>
+                                    <a class="{{ str_contains(url()->current(), 'price') ? 'text-danger' : 'text-secondary' }}"
+                                        href={{ route('shop.index', ['sort' => 'price', 'category' => substr(url()->current(), -1)]) }}>price</a>
+                                    <a class="{{ str_contains(url()->current(), 'created_at') ? 'text-danger' : 'text-secondary' }}"
+                                        href={{ route('shop.index', ['sort' => 'created_at', 'category' => substr(url()->current(), -1)]) }}>product</a>
                                 @endif
                             </div>
                             {{-- <div class="single_product_menu d-flex">
@@ -65,14 +75,22 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
                                 <a href={{ route('product.show', $product->id) }}>
-
                                     <img src={{ asset("storage/img/products/$product->img_url") }} alt="">
                                 </a>
                                 <div class="single_product_text">
                                     <h4 style="white-space: nowrap">{{ mb_strimwidth($product->name, 0, 20, '...') }}
                                     </h4>
                                     <h3>${{ $product->price }}</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                    <form action={{ route('cart.store', $product->id) }} method="POST" id="CSF{{ $product->id }}">
+                                        @csrf
+                                        <a href="#{{ $product->id }}" onclick="submitForm({{ $product->id }})" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                        {{-- <button type="submit">Add</button> --}}
+                                    </form>
+                                    <script>
+                                        function submitForm(id) {
+                                            document.getElementById(`CSF${id}`).submit();
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </div>
