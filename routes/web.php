@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -27,6 +28,7 @@ Route::get('/product/{product}', [ProductController::class, 'show'])->name('prod
 
 // Mail
 Route::post('/mail', [MailController::class, 'store'])->name('mail.store');
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 Route::get('/backoffice', function () {
     return view('backoffice');

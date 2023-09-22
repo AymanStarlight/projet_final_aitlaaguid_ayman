@@ -1,0 +1,1 @@
+<p>Congrats, you are now subscribed to Aranoz Newsletter</p>
