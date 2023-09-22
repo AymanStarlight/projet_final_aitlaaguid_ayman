@@ -14,13 +14,29 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::create([
+        $admin = User::create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => 'adminadmin',
         ])->assignRole('admin');
         Cart::create([
+            'user_id' => $admin->id
+        ]);
+        $user = User::create([
+            'name' => 'user',
+            'email' => 'user@user.com',
+            'password' => 'useruser',
+        ])->assignRole('user');
+        Cart::create([
             'user_id' => $user->id
+        ]);
+        $webmaster = User::create([
+            'name' => 'webmaster',
+            'email' => 'webmaster@webmaster.com',
+            'password' => 'webmasterwebmaster',
+        ])->assignRole('webmaster');
+        Cart::create([
+            'user_id' => $webmaster->id
         ]);
     }
 }

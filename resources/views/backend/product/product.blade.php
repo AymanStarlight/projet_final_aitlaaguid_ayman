@@ -4,7 +4,12 @@
             @include('backend.product.components.create')
         </div>
         <div>
-            @include('backend.product.components.products_table')
+            @if (count($products) == 0)
+                <h2>There is no Products</h2>
+            @else
+                @include('backend.product.components.products_table')
+            @endif
         </div>
+
     </section>
 </x-app-layout>
