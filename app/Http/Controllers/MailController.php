@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MessageSender;
 use App\Models\Mail;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,8 @@ class MailController extends Controller
         ];
 
         Mail::create($data);
+
+        \Illuminate\Support\Facades\Mail::to('admin@admin.com')->send(new MessageSender($request));
 
         return back()->with('success', 'Your Email is Sent');
     }
