@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\ContactInfo;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class HomeController extends Controller
     }
 
     public function contact() {
-        return view('frontend.contact.contact');
+        $contact = ContactInfo::all()->first();
+        return view('frontend.contact.contact', compact('contact'));
     }
 }
