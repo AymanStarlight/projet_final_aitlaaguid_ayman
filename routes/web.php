@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
@@ -53,6 +54,11 @@ Route::prefix('backoffice')->middleware(['auth', 'role:admin'])->group(function 
     Route::put('/mails/viewed/{mail}', [MailController::class, 'viewed'])->name('mail.viewed');
     Route::put('/mails/viewedT/{mail}', [MailController::class, 'viewedT'])->name('mail.viewedT');
     Route::delete('/mails/delete/{mail}', [MailController::class, 'destroy'])->name('mail.delete');
+
+    // Contact
+    Route::get('/contactinfo', [ContactController::class, 'index'])->name('contact.index');
+    Route::put('/contact/edit', [ContactController::class, 'update'])->name('contact.update');
+
 });
 
 Route::middleware('auth')->group(function () {

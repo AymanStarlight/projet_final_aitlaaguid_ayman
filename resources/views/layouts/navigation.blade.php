@@ -23,6 +23,9 @@
                         <x-nav-link class="no-underline" :href="route('mail.index')" :active="request()->routeIs('mail.index')">
                             {{ __('Messages') }}
                         </x-nav-link>
+                        <x-nav-link class="no-underline" :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                            {{ __('Contact Info') }}
+                        </x-nav-link>
                     @endrole
                 </div>
             </div>
@@ -93,6 +96,9 @@
                 </x-nav-link>
                 <x-nav-link class="no-underline" :href="route('mail.index')" :active="request()->routeIs('mail.index')">
                     {{ __('Messages') }}
+                </x-nav-link>
+                <x-nav-link class="no-underline" :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                    {{ __('Contact Info') }}
                 </x-nav-link>
             @endrole
         </div>
