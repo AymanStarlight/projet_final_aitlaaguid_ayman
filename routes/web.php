@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
@@ -65,6 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/cart/increment/{product}', [CartController::class, 'increment'])->name('cart.increment');
     Route::put('/cart/decrement/{product}', [CartController::class, 'decrement'])->name('cart.decrement');
     Route::delete('/cart/delete/{product}', [CartController::class, 'destroy'])->name('cart.delete');
+
+    // Comments
+    Route::post('/product/comment/{product}', [CommentController::class, 'store'])->name('comment.store');
 });
 
 require __DIR__ . '/auth.php';

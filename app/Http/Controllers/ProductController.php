@@ -9,17 +9,24 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function show(Product $product) {
+    public function show(Product $product)
+    {
         return view('frontend.product.product', compact('product'));
     }
 
-    public function index() {
-        $products = Product::all();
+    public function index()
+    {
+        if (auth()->user()->hasRole('admin')) {
+            $products = Product::all();
+        } else {
+            $products = Product::all()->where('user_id', auth()->user()->id);
+        }
         $categories = Category::all();
         return view('backend.product.product', compact('products', 'categories'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         request()->validate([
             "name" => ['required'],
             "price" => ['required'],
@@ -28,7 +35,7 @@ class ProductController extends Controller
             "description" => ['required'],
         ]);
 
-        if($request->hasFile('img_file')) {
+        if ($request->hasFile('img_file')) {
             request()->validate([
                 "img_file" => 'image|mimes:png,jpg,jpeg,gif|max:2048',
             ]);
@@ -53,7 +60,8 @@ class ProductController extends Controller
         return back()->with('success', 'Product created successfuly');
     }
 
-    public function update(Request $request, Product $product) {
+    public function update(Request $request, Product $product)
+    {
         request()->validate([
             "name" => ['required'],
             "price" => ['required'],
@@ -63,7 +71,7 @@ class ProductController extends Controller
         ]);
 
         if ($request->file('img_file') != null) {
-            if(!strstr($product->img_url, 'product')) {
+            if (!strstr($product->img_url, 'product')) {
                 Storage::disk("public")->delete('img/products/' . $product->img_url);
             }
 
@@ -94,9 +102,10 @@ class ProductController extends Controller
         return back()->with('success', 'Product Updated Successfuly');
     }
 
-    public function destroy(Product $product) {
+    public function destroy(Product $product)
+    {
 
-        if(!strstr($product->img_url, 'product')) {
+        if (!strstr($product->img_url, 'product')) {
             Storage::disk("public")->delete('img/products/' . $product->img_url);
         }
 

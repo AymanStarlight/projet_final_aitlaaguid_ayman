@@ -17,4 +17,5 @@
   </section>
   <!-- breadcrumb start-->
   @include('frontend.product.partials.info')
+  @include('frontend.product.partials.description')
 @endsection

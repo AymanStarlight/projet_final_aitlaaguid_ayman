@@ -30,4 +30,8 @@ class Product extends Model
     public function cart_product() {
         return $this->hasMany(CartProduct::class);
     }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
