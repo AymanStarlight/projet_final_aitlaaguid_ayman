@@ -24,18 +24,18 @@ Route::get('/shop/{sort?}/{category?}', [HomeController::class, 'shop'])->name('
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact.index');
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified', 'role:admin|webmaster'])->name('dashboard');
+Route::get('/backoffice', function () {
+    return view('backoffice');
+})->middleware(['auth', 'verified', 'role:admin|webmaster'])->name('backoffice');
 
-Route::middleware(['auth', 'role:admin|webmaster'])->group(function () {
+Route::prefix('backoffice')->middleware(['auth', 'role:admin|webmaster'])->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('product.index');
     Route::post('/products/store', [ProductController::class, 'store'])->name('product.store');
     Route::put('/products/edit/{product}', [ProductController::class, 'update'])->name('product.edit');
     Route::delete('/products/delete/{product}', [ProductController::class, 'destroy'])->name('product.delete');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::prefix('backoffice')->middleware(['auth', 'role:admin'])->group(function () {
     // Users
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
     Route::post('/users/webmaster/{user}', [UserController::class, 'webmaster'])->name('user.webmaster');

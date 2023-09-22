@@ -102,6 +102,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->back()->with('warning', 'Book deleted successfuly');
+        return redirect()->back()->with('error', 'Product deleted successfuly');
     }
 }

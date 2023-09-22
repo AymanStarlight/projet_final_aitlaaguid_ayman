@@ -54,6 +54,13 @@
                             <a href="{{ route('login') }}"><i class="fa-regular fa-user"></i></a>
                         @endauth
                     </div>
+                    <div style="margin-bottom: 5.5px">
+                       @auth
+                           @role(['admin', 'webmaster'])
+                           <a href="{{ route('backoffice') }}"><i class="fa-solid fa-screwdriver-wrench fa-2xl" style="color: #ff254e;"></i></a>
+                           @endrole
+                       @endauth
+                    </div>
                 </nav>
             </div>
         </div>

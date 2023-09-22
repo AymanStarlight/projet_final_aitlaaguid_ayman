@@ -35,7 +35,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <a class="navbar-brand" href="/">
-                <img src="storage/img/logo.png">
+                <img src="{{ asset("storage/img/logo.png") }}">
             </a>
         </div>
 
