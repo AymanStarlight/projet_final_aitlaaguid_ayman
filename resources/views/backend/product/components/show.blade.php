@@ -9,7 +9,7 @@
     <!-- Modal -->
     <div class="modal fade" id="showModal{{ $product->id }}" tabindex="-1"
         aria-labelledby="showModal{{ $product->id }}Label" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="showModal{{ $product->id }}Label">{{ $product->name }}</h1>

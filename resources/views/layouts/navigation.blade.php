@@ -13,14 +13,17 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link class="no-underline" :href="route('product.index')" :active="request()->routeIs('product.index')">
+                        {{ __('Products') }}
+                    </x-nav-link>
                     @role(['admin'])
                         <x-nav-link class="no-underline" :href="route('user.index')" :active="request()->routeIs('user.index')">
                             {{ __('Users') }}
                         </x-nav-link>
+                        <x-nav-link class="no-underline" :href="route('mail.index')" :active="request()->routeIs('mail.index')">
+                            {{ __('Messages') }}
+                        </x-nav-link>
                     @endrole
-                    <x-nav-link class="no-underline" :href="route('product.index')" :active="request()->routeIs('product.index')">
-                        {{ __('Products') }}
-                    </x-nav-link>
                 </div>
             </div>
 
@@ -81,14 +84,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-nav-link class="no-underline" :href="route('product.index')" :active="request()->routeIs('product.index')">
+                {{ __('Products') }}
+            </x-nav-link>
             @role(['admin'])
                 <x-nav-link class="no-underline" :href="route('user.index')" :active="request()->routeIs('user.index')">
                     {{ __('Users') }}
                 </x-nav-link>
+                <x-nav-link class="no-underline" :href="route('mail.index')" :active="request()->routeIs('mail.index')">
+                    {{ __('Messages') }}
+                </x-nav-link>
             @endrole
-            <x-nav-link class="no-underline" :href="route('product.index')" :active="request()->routeIs('product.index')">
-                {{ __('Products') }}
-            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
